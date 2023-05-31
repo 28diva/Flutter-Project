@@ -8,35 +8,47 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My App',
+      title: 'Sign In',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/bg.jpg'), // Ganti dengan path gambar latar belakang Anda
-              fit: BoxFit.cover, // Sesuaikan dengan kebutuhan, misalnya BoxFit.fill untuk mengisi seluruh area
-            ),
-          ),
-          child: YourWidget(), // Ganti YourWidget() dengan widget yang ingin ditampilkan di atas latar belakang
-        ),
-      ),
+      home: SignInPage(),
     );
   }
 }
 
-class YourWidget extends StatelessWidget {
+class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Widget yang ingin ditampilkan di atas latar belakang
-    return Center(
-      child: Text(
-        'Hello, World!',
-        style: TextStyle(
-          fontSize: 24,
-          color: Colors.white,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Sign In'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Email',
+              ),
+            ),
+            SizedBox(height: 16.0),
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Password',
+              ),
+            ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                // Implementasi logika sign in di sini
+              },
+              child: Text('Sign In'),
+            ),
+          ],
         ),
       ),
     );
